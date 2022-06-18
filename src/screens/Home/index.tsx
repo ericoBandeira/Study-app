@@ -1,11 +1,12 @@
-import React from 'react';
-import { Button } from '../../components/Button';
-import { Container, Title} from './styles';
+import React, { useState } from 'react';
+import { Input } from '../../components/Input';
+import { Container} from './styles';
 
 export function Home() {
+    const [test, setTest] = useState('')
     return (
         <Container>
-            <Button title="Iniciar" type="text"/>
+            <Input title="E-mail" onChangeText={setTest} />
         </Container>
     )
 }
