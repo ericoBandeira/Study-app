@@ -16,7 +16,7 @@ export const TitleInput = styled.Text`
 
 export const InputText = styled.TextInput`
     background-color: ${({ theme }) => theme.colors.shape};
-    width: ${RFValue(332)}px;
+    width: ${RFValue(300)}px;
     padding: 8px 12px;
 
     border: 1px solid #CDCCD7;
