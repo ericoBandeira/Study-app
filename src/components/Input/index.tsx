@@ -3,10 +3,11 @@ import { TextInput, TextInputProps } from "react-native";
 import { InputContainer, InputText, TitleInput } from "./styles";
 
 interface InputProps extends TextInputProps{
-    title: string
+    title: string;
+    password?: boolean;
 }
 
-export function Input({ title, onChangeText}: InputProps) {
+export function Input({ title, onChangeText, password}: InputProps) {
     return (
         <InputContainer>
             <TitleInput>
@@ -16,6 +17,7 @@ export function Input({ title, onChangeText}: InputProps) {
                 placeholder={title}
                 placeholderTextColor="#827F9B"
                 onChangeText={onChangeText}
+                secureTextEntry={password}
             />
         </InputContainer>
     );

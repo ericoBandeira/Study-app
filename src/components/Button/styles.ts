@@ -8,7 +8,7 @@ interface ButtonProps {
 export const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
     background-color: ${({ type }) => type === 'text' ? 'transparent' : '#85C88A' };
     border-radius: 4px;
-    padding: ${({ size }) => size === 'lg' ? '13px 30px' : '4px 19px' };
+    padding: ${({ size, type }) => size === 'lg' ? '13px 30px' : type === 'text' ? '0' : '4px 19px' };
 `;
 
 export const ButtonText = styled.Text<ButtonProps>`

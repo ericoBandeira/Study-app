@@ -21,4 +21,5 @@ export const InputText = styled.TextInput`
 
     border: 1px solid #CDCCD7;
     border-radius: 4px;
+    margin-bottom: 10px;
 `;

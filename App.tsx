@@ -10,7 +10,7 @@ import {
 } from '@expo-google-fonts/poppins'
 
 import theme from './src/global/styles/theme';
-import { Home } from './src/screens/Home';
+import { Login } from './src/screens/Login';
 
 export default function App() {
 
@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Home/>
+      <Login/>
     </ThemeProvider>
   );
 }
