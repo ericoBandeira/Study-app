@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
-import { CardImg } from '../../components/Card-img';
-import { Input } from '../../components/Input';
-import { PageTitle } from '../../components/Page-title';
-import { TitleListProducts } from '../../components/Title-list-products';
+import { TitleListQuests } from '../../components/Title-list-quests';
 import { Container} from './styles';
 
 export function Home() {
-    const [test, setTest] = useState('')
     return (
         <Container>
-            <TitleListProducts title="Renda Fixa" numberStars={3}/>
+            <TitleListQuests title="Fatores de Risco" numberMoney={200} type="quest"/>
         </Container>
     )
 }

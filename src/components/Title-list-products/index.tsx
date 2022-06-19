@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Container, StarContainer, Title, StarIcon, Icon, ContainerStars } from "./styles";
 
 interface TitleListProductsProps{
     title: string;
     numberStars: number;
+    type: 'quest' | 'invesment' | 'market' | 'notice';
+}
+
+const icon = {
+    quest: "md-school-outline",
+    invesment: "md-bar-chart-outline",
+    market: "ios-wallet-outline",
+    notice: "notifications-outline",
 }
 
 
-export function TitleListProducts({ title, numberStars }: TitleListProductsProps) {
+export function TitleListProducts({ title, numberStars, type }: TitleListProductsProps) {
     return (
         <Container>
             <StarContainer>
@@ -21,7 +29,7 @@ export function TitleListProducts({ title, numberStars }: TitleListProductsProps
                     })}
                 </ContainerStars>
             </StarContainer>
-            <Icon name="md-bar-chart-outline" size={RFValue(32)} />
+            <Icon name={icon[type]} size={RFValue(32)} />
         </Container>
     );
 }
