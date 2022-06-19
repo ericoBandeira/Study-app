@@ -11,6 +11,7 @@ import {
 
 import theme from './src/global/styles/theme';
 import { Register } from './src/screens/Register';
+import { Loading } from './src/screens/Loading';
 
 export default function App() {
 
@@ -21,9 +22,9 @@ export default function App() {
     Poppins_600SemiBold
   })
 
-  // if (!fontsLoaded) {
-  //   return <AppLoadingPage/>
-  // }
+  if (!fontsLoaded) {
+    return <Loading/>
+  }
 
   return (
     <ThemeProvider theme={theme}>
