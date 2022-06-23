@@ -4,7 +4,7 @@ import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Container, Logo, LoginContainer, Title, ButtonContainer, ForgetPasswordContainer} from './styles';
 
-export function Login() {
+export function Login({navigation}: any) {
     return (
         <Container>
             <Logo source={require('../../global/imgs/logo.png')}/>
@@ -15,11 +15,11 @@ export function Login() {
                 <Input title="E-mail" />
                 <Input title="Senha" password={true}/>
                 <ButtonContainer>
-                    <Button title="Criar Conta" type="text"/>
+                    <Button title="Criar Conta" type="text" onPress={() => navigation.navigate('Cadastrar')}/>
                     <Button title="Login" type="button" size="lg"/>
                 </ButtonContainer>
                 <ForgetPasswordContainer>
-                    <Button title="Esqueceu Senha" type="text" />
+                    <Button title="Esqueceu Senha" type="text"/>
                 </ForgetPasswordContainer>
             </LoginContainer>
         </Container>

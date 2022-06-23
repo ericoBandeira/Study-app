@@ -1,3 +1,4 @@
+import { BorderlessButton } from "react-native-gesture-handler";
 import styled from "styled-components/native";
 
 interface ButtonProps {
@@ -5,7 +6,7 @@ interface ButtonProps {
     size: 'sm' | 'lg';
 }
 
-export const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
+export const ButtonContainer = styled(BorderlessButton)<ButtonProps>`
     background-color: ${({ type }) => type === 'text' ? 'transparent' : '#85C88A' };
     border-radius: 4px;
     padding: ${({ size, type }) => size === 'lg' ? '13px 30px' : type === 'text' ? '0' : '4px 19px' };

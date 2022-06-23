@@ -10,8 +10,8 @@ import {
 } from '@expo-google-fonts/poppins'
 
 import theme from './src/global/styles/theme';
-import { Register } from './src/screens/Register';
 import { Loading } from './src/screens/Loading';
+import { AppRouter } from './src/routers/app.routes';
 
 export default function App() {
 
@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Register/>
+      <AppRouter/>
     </ThemeProvider>
   );
 }
