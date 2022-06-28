@@ -1,8 +1,8 @@
 import React from "react";
-import { Text, TouchableOpacityProps } from "react-native";
+import { BorderlessButtonProps } from "react-native-gesture-handler";
 import { ButtonContainer, ButtonText } from "./styles";
 
-interface ButtonProps extends TouchableOpacityProps{
+interface ButtonProps extends BorderlessButtonProps{
     title: string;
     type: 'text' | 'button';
     size?: 'sm' | 'lg';

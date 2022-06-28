@@ -1,13 +1,16 @@
 import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native'
 
-export const Container = styled.SafeAreaView`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    background-color: ${({ theme }) => theme.colors.background};
-    justify-content: space-around;
-`;
+export const Container = styled.KeyboardAvoidingView.attrs({
+    behavior: "position",
+    enabled: true,
+    contentContainerStyle: {
+        alignItems: 'center',
+        backgroundColor: '#EEEEEE',
+        justifyContent: "space-around",
+        height: "100%"
+    }
+})``;
 
 export const Title = styled.Text`
     font-family: ${({theme}) => theme.fonts.mid};
@@ -40,4 +43,11 @@ export const ButtonContainer = styled.View`
 export const ForgetPasswordContainer = styled.View`
     align-items: flex-end;
     margin-top: ${RFValue(8)}px;
+`;
+
+export const Error = styled.Text`
+    font-family: ${({theme}) => theme.fonts.mid};
+    color: ${({ theme }) => theme.colors.attention};
+    font-size: 12px;
+
 `;

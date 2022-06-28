@@ -7,17 +7,20 @@ interface InputProps extends TextInputProps{
     password?: boolean;
 }
 
-export function Input({ title, onChangeText, password}: InputProps) {
+export function Input({ title, onChangeText, password, ...rest}: InputProps) {
     return (
         <InputContainer>
             <TitleInput>
                 {title}
             </TitleInput>
             <InputText
+                autoCorrect={false}
+                autoCapitalize='none'
                 placeholder={title}
                 placeholderTextColor="#827F9B"
                 onChangeText={onChangeText}
                 secureTextEntry={password}
+                {...rest}
             />
         </InputContainer>
     );

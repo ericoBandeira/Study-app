@@ -1,3 +1,4 @@
+import { TextInput } from "react-native-gesture-handler";
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
@@ -14,7 +15,7 @@ export const TitleInput = styled.Text`
     color: ${({theme}) => theme.colors.blue};
 `;
 
-export const InputText = styled.TextInput`
+export const InputText = styled(TextInput)`
     background-color: ${({ theme }) => theme.colors.shape};
     width: ${RFValue(300)}px;
     padding: 8px 12px;
