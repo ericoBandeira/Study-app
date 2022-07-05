@@ -38,19 +38,19 @@ export function AppRouter() {
                         name="Home"
                         component={Home}
                     />
-                    <Tab.Screen
+                    <Stack.Screen
                         name="HowToQuests"
                         component={HowToQuests}
                     />
-                    <Tab.Screen
+                    <Stack.Screen
                         name="HowToInvestment"
                         component={HowToInvestment}
                     />
-                    <Tab.Screen
+                    <Stack.Screen
                         name="HowToStore"
                         component={HowToStore}
                     />
-                    <Tab.Screen
+                    <Stack.Screen
                         name="HowToNotice"
                         component={HowToNotice}
                     />

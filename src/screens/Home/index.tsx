@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { CardImg } from '../../components/Card-img';
 import { Logo } from '../Loading/styles';
@@ -15,7 +15,9 @@ import {
     Amount,
     ButtonsContainer,
     RowContainer,
-    CardButton
+    CardButton,
+    Footer,
+    CardIcon
 } from './styles';
 
 export function Home() {
@@ -36,22 +38,41 @@ export function Home() {
             </Header>
             <Body>
                 <ButtonsContainer>
-                    <RowContainer>
-                        <CardButton>
-                            <CardImg title="Quests" type="quest"/>
-                        </CardButton>
-                        <CardButton>
-                            <CardImg title="Investimentos" type="invesment"/>
-                        </CardButton>
-                    </RowContainer>
-                    <RowContainer>
-                        <CardButton>
-                            <CardImg title="Loja" type="market"/>
-                        </CardButton>
-                        <CardButton>
-                            <CardImg title="Noticias" type="notice"/>
-                        </CardButton>
-                    </RowContainer>
+                    <View>
+                        <RowContainer>
+                            <CardButton>
+                                <CardImg title="Quests" type="quest"/>
+                            </CardButton>
+                            <CardButton>
+                                <CardImg title="Investimentos" type="invesment"/>
+                            </CardButton>
+                        </RowContainer>
+                        <RowContainer>
+                            <CardButton>
+                                <CardImg title="Loja" type="market"/>
+                            </CardButton>
+                            <CardButton>
+                                <CardImg title="Noticias" type="notice"/>
+                            </CardButton>
+                        </RowContainer>
+                    </View>
+                    <Footer>
+                        <UserButton>
+                            <CardIcon name="home-outline" size={RFValue(28)}/>
+                        </UserButton>
+                        <UserButton>
+                            <CardIcon name="md-school-outline" size={RFValue(28)}/>
+                        </UserButton>
+                        <UserButton>
+                            <GraphIcon name="bar-graph" size={RFValue(28)}/>
+                        </UserButton>
+                        <UserButton>
+                            <CardIcon name="ios-wallet-outline" size={RFValue(28)}/>
+                        </UserButton>
+                        <UserButton>
+                            <CardIcon name="notifications-outline" size={RFValue(28)}/>
+                        </UserButton>
+                    </Footer>
                 </ButtonsContainer>
             </Body>
         </Container>
