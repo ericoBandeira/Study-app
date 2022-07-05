@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Login } from '../screens/Login';
 import { Register } from '../screens/Register';
-import { useState } from 'react';
-import { AppContext, AppProvider } from '../context/contextapi';
+import { AppProvider } from '../context/contextapi';
+import { HowToQuests } from '../screens/HowToQuests';
+import { HowToInvestment } from '../screens/HowToInvestment';
+import { HowToStore } from '../screens/HowToStore';
+import { HowToNotice } from '../screens/HowToNotice';
 import { Home } from '../screens/Home';
 
 const Stack = createStackNavigator();
@@ -36,8 +39,20 @@ export function AppRouter() {
                         component={Home}
                     />
                     <Tab.Screen
-                        name="Settings"
-                        component={Register}
+                        name="HowToQuests"
+                        component={HowToQuests}
+                    />
+                    <Tab.Screen
+                        name="HowToInvestment"
+                        component={HowToInvestment}
+                    />
+                    <Tab.Screen
+                        name="HowToStore"
+                        component={HowToStore}
+                    />
+                    <Tab.Screen
+                        name="HowToNotice"
+                        component={HowToNotice}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

@@ -1,11 +1,13 @@
 import React from "react";
 import { TouchableOpacityProps } from "react-native";
+import { RectButtonProps } from "react-native-gesture-handler";
 import { RFValue } from "react-native-responsive-fontsize";
 import { CardContainer, TitleCard, CardIcon } from "./styles";
 
-interface CardProps extends TouchableOpacityProps{
+interface CardProps extends RectButtonProps{
     title: string;
     type: 'quest' | 'invesment' | 'market' | 'notice';
+    disabled?: boolean;
 }
 
 const icon = {
@@ -15,9 +17,9 @@ const icon = {
     notice: "notifications-outline",
 }
 
-export function CardImg({title, type}: CardProps) {
+export function CardImg({title, type, disabled, ...rest}: CardProps) {
     return (
-        <CardContainer>
+        <CardContainer disabled={disabled} {...rest}>
             <TitleCard>
                 {title}
             </TitleCard>

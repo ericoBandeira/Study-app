@@ -15,10 +15,10 @@ export function Login({ navigation }: any) {
     const { setSignedIn, signedIn } = useContext(AppContext)
     
     function fakeAuth() {
-        if (user === "rafaelTeodosio@aluno.com" && password === '123456'){
+        if (user === "rafaelteodosio@aluno.com" && password === '123456'){
             setError(false)
             setSignedIn(true)
-            navigation.navigate('Home')
+            navigation.navigate('HowToQuests')
             console.log(signedIn)
         } else {
             setError(true)

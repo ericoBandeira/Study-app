@@ -14,6 +14,7 @@ export default {
         title: "#363F5F",
         text: "#000000",
         background: "#EEEEEE",
+        disabled: "#909090"
     },
 
     fonts: {

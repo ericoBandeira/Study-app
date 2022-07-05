@@ -1,9 +1,9 @@
 import React from 'react';
-import { TouchableOpacityProps } from 'react-native';
+import { RectButtonProps } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Container, Icon, MsgContainer, TextContainer, NextButton, NextIcon } from './styles';
 
-interface InfoMsgProps extends TouchableOpacityProps{
+interface InfoMsgProps extends RectButtonProps{
     text: string;
 }
 

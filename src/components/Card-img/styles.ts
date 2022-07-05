@@ -1,12 +1,16 @@
 import styled from "styled-components/native";
 import { Ionicons } from '@expo/vector-icons';
 import { RFValue } from "react-native-responsive-fontsize";
+import { RectButton } from "react-native-gesture-handler";
 
+interface ButtonProps {
+    disabled?: boolean;
+}
 
-export const CardContainer = styled.TouchableOpacity`
+export const CardContainer = styled(RectButton)<ButtonProps>`
     width: ${RFValue(175)}px;
 
-    background: ${({theme}) => theme.colors.primary_light};
+    background: ${({theme, disabled}) => disabled ? theme.colors.disabled : theme.colors.primary_light};
     box-shadow: 0px 8px 16px rgba(5, 0, 56, 0.12);
     border-radius: 16px;
     padding: 30px 42px;
