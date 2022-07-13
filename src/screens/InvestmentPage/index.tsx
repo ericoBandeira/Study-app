@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { View } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
+import { Footer } from "../../components/Footer";
 import { InvestmentList } from "../../components/Investment-list";
 import { PageTitle } from "../../components/Page-title";
 import { TitleListProducts } from "../../components/Title-list-products";
@@ -17,11 +18,9 @@ import {
   MoneyIcon,
   Amount,
   ButtonsContainer,
-  CardIcon,
-  Footer,
 } from "./styles";
 
-export function InvestmentPage() {
+export function InvestmentPage({ navigation }: any) {
   const { userMoney } = useContext(AppContext);
 
   return (
@@ -55,23 +54,7 @@ export function InvestmentPage() {
               type="investment"
             />
           </View>
-          <Footer>
-            <UserButton>
-              <CardIcon name="home-outline" size={RFValue(28)} />
-            </UserButton>
-            <UserButton>
-              <CardIcon name="md-school-outline" size={RFValue(28)} />
-            </UserButton>
-            <UserButton>
-              <GraphIcon name="bar-graph" size={RFValue(28)} />
-            </UserButton>
-            <UserButton>
-              <CardIcon name="ios-wallet-outline" size={RFValue(28)} />
-            </UserButton>
-            <UserButton>
-              <CardIcon name="notifications-outline" size={RFValue(28)} />
-            </UserButton>
-          </Footer>
+          <Footer navigation={navigation} />
         </ButtonsContainer>
       </Body>
     </Container>

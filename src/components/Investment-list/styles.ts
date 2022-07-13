@@ -36,6 +36,7 @@ export const InvestmentText = styled.Text`
 export const StarContainer = styled.View`
   flex-direction: row;
   align-items: center;
+  align-items: flex-start;
 `;
 
 export const InvestmentPercent = styled.Text`

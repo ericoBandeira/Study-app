@@ -38,9 +38,7 @@ export function InvestmentList() {
     <Container>
       {mockInvestment.map((investment: InvestmentProps, index: number) => (
         <InvestmentContainer key={index} index={index}>
-          <InvestmentText>
-            {investment.name} {index}
-          </InvestmentText>
+          <InvestmentText>{investment.name}</InvestmentText>
 
           <StarContainer>
             {Array.from(Array(investment.stars), () => {

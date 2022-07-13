@@ -4,6 +4,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 import { CardImg } from "../../components/Card-img";
 import { AppContext } from "../../context/contextapi";
 import { Logo } from "../Loading/styles";
+import { Footer } from "../../components/Footer";
 import {
   Container,
   Header,
@@ -17,8 +18,6 @@ import {
   ButtonsContainer,
   RowContainer,
   CardButton,
-  Footer,
-  CardIcon,
 } from "./styles";
 
 export function Home({ navigation }: any) {
@@ -61,23 +60,7 @@ export function Home({ navigation }: any) {
               </CardButton>
             </RowContainer>
           </View>
-          <Footer>
-            <UserButton>
-              <CardIcon name="home-outline" size={RFValue(28)} />
-            </UserButton>
-            <UserButton>
-              <CardIcon name="md-school-outline" size={RFValue(28)} />
-            </UserButton>
-            <UserButton>
-              <GraphIcon name="bar-graph" size={RFValue(28)} />
-            </UserButton>
-            <UserButton>
-              <CardIcon name="ios-wallet-outline" size={RFValue(28)} />
-            </UserButton>
-            <UserButton>
-              <CardIcon name="notifications-outline" size={RFValue(28)} />
-            </UserButton>
-          </Footer>
+          <Footer navigation={navigation} />
         </ButtonsContainer>
       </Body>
     </Container>

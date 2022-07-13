@@ -26,7 +26,6 @@ export function AppRouter() {
             headerShown: false,
           }}
         >
-          <Stack.Screen name="InvestmentPage" component={InvestmentPage} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Cadastrar" component={Register} />
           <Tab.Screen name="Home" component={Home} />
@@ -34,6 +33,7 @@ export function AppRouter() {
           <Stack.Screen name="HowToInvestment" component={HowToInvestment} />
           <Stack.Screen name="HowToStore" component={HowToStore} />
           <Stack.Screen name="HowToNotice" component={HowToNotice} />
+          <Stack.Screen name="InvestmentPage" component={InvestmentPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>

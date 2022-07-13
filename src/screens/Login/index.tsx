@@ -26,7 +26,6 @@ export function Login({ navigation }: any) {
       setError(false);
       setSignedIn(true);
       navigation.navigate("HowToQuests");
-      console.log(signedIn);
     } else {
       setError(true);
     }
