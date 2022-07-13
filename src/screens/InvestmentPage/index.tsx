@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { View } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import { CardImg } from "../../components/Card-img";
+import { InvestmentList } from "../../components/Investment-list";
+import { PageTitle } from "../../components/Page-title";
+import { TitleListProducts } from "../../components/Title-list-products";
 import { AppContext } from "../../context/contextapi";
 import { Logo } from "../Loading/styles";
 import {
@@ -15,13 +17,11 @@ import {
   MoneyIcon,
   Amount,
   ButtonsContainer,
-  RowContainer,
-  CardButton,
-  Footer,
   CardIcon,
+  Footer,
 } from "./styles";
 
-export function Home({ navigation }: any) {
+export function InvestmentPage() {
   const { userMoney } = useContext(AppContext);
 
   return (
@@ -40,26 +40,20 @@ export function Home({ navigation }: any) {
       <Body>
         <ButtonsContainer>
           <View>
-            <RowContainer>
-              <CardButton>
-                <CardImg title="Quests" type="quest" />
-              </CardButton>
-              <CardButton>
-                <CardImg
-                  title="Investimentos"
-                  type="investment"
-                  onPress={() => navigation.navigate("InvestmentPage")}
-                />
-              </CardButton>
-            </RowContainer>
-            <RowContainer>
-              <CardButton>
-                <CardImg title="Loja" type="market" />
-              </CardButton>
-              <CardButton>
-                <CardImg title="Noticias" type="notice" />
-              </CardButton>
-            </RowContainer>
+            <PageTitle title="Lista de investimentos" type="investment" />
+            <TitleListProducts
+              title="Renda Fixa"
+              numberStars={1}
+              type="investment"
+            />
+
+            <InvestmentList />
+
+            <TitleListProducts
+              title="Fundos Imobiliários"
+              numberStars={3}
+              type="investment"
+            />
           </View>
           <Footer>
             <UserButton>
