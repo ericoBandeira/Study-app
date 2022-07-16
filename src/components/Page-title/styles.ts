@@ -6,7 +6,8 @@ export const Container = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 20px ${RFValue(15)}px;
+  padding: 0px ${RFValue(15)}px;
+  padding-bottom: 15px;
 `;
 
 export const Title = styled.Text`

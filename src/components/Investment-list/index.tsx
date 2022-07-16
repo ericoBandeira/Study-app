@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { RFValue } from "react-native-responsive-fontsize";
+import { InvestmentProps } from "../../screens/InvestmentPage";
 import { Button } from "../Button";
 import {
   Container,
@@ -12,44 +13,49 @@ import {
   InvestmentIcon,
   StarContainer,
   ButtonContainer,
+  BuyContainer,
+  PlusMinusButton,
+  BuyInput,
+  TextPlusMinusButton,
+  BuyButtonContainer,
 } from "./styles";
 
-interface InvestmentProps {
-  name: string;
-  stars: number;
-  percent: string;
-}
-
-export function InvestmentList() {
-  const [mockInvestment, setMockInvestment] = useState<Array<InvestmentProps>>([
-    {
-      name: "CDI",
-      stars: 1,
-      percent: "9",
-    },
-    {
-      name: "SELIC",
-      stars: 2,
-      percent: "11",
-    },
-  ]);
+export function InvestmentList({ ArrayInvestments }: any) {
+  const [buy, setBuy] = useState(false);
 
   return (
     <Container>
-      {mockInvestment.map((investment: InvestmentProps, index: number) => (
+      {ArrayInvestments.map((investment: InvestmentProps, index: number) => (
         <InvestmentContainer key={index} index={index}>
           <InvestmentText>{investment.name}</InvestmentText>
 
           <StarContainer>
-            {Array.from(Array(investment.stars), () => {
-              return (
-                <StarIcon
-                  name="md-star-outline"
-                  size={RFValue(18)}
-                  color="#E83A14"
+            {buy ? (
+              <BuyContainer>
+                <PlusMinusButton>
+                  <TextPlusMinusButton>-</TextPlusMinusButton>
+                </PlusMinusButton>
+                <BuyInput
+                  keyboardType="numeric"
+                  onChangeText={() => {}}
+                  maxLength={10}
+                  value="0"
                 />
-              );
-            })}
+                <PlusMinusButton>
+                  <TextPlusMinusButton>+</TextPlusMinusButton>
+                </PlusMinusButton>
+              </BuyContainer>
+            ) : (
+              Array.from(Array(investment.stars), () => {
+                return (
+                  <StarIcon
+                    name="md-star-outline"
+                    size={RFValue(18)}
+                    color="#E83A14"
+                  />
+                );
+              })
+            )}
           </StarContainer>
 
           <PercentContainer>
@@ -59,7 +65,31 @@ export function InvestmentList() {
         </InvestmentContainer>
       ))}
       <ButtonContainer>
-        <Button title="Adquirir" type="button" size="sm" />
+        {buy ? (
+          <BuyButtonContainer>
+            <Button
+              title="Cancelar"
+              type="button"
+              size="sm"
+              cancel
+              onPress={() => setBuy(!buy)}
+            />
+            <Button
+              title="Comprar"
+              type="button"
+              size="sm"
+              onPress={() => setBuy(!buy)}
+              style={{ marginLeft: 10 }}
+            />
+          </BuyButtonContainer>
+        ) : (
+          <Button
+            title="Adquirir"
+            type="button"
+            size="sm"
+            onPress={() => setBuy(!buy)}
+          />
+        )}
       </ButtonContainer>
     </Container>
   );

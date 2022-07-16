@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
+import { useState } from "react";
 import { View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Footer } from "../../components/Footer";
 import { InvestmentList } from "../../components/Investment-list";
@@ -20,8 +22,47 @@ import {
   ButtonsContainer,
 } from "./styles";
 
+export interface InvestmentProps {
+  name: string;
+  stars: number;
+  percent: string;
+}
+
 export function InvestmentPage({ navigation }: any) {
   const { userMoney } = useContext(AppContext);
+  const [fixRent, setFixRent] = useState(false);
+  const [fii, setFii] = useState(false);
+
+  const [mockInvestment, setMockInvestment] = useState<Array<InvestmentProps>>([
+    {
+      name: "CDI",
+      stars: 1,
+      percent: "9",
+    },
+    {
+      name: "SELIC",
+      stars: 2,
+      percent: "11",
+    },
+  ]);
+
+  const [mockFii2, setMockFii2] = useState<Array<InvestmentProps>>([
+    {
+      name: "BRCO11",
+      stars: 1,
+      percent: "7,62",
+    },
+    {
+      name: "BTLG11",
+      stars: 5,
+      percent: "6,64",
+    },
+    {
+      name: "HGLG11",
+      stars: 2,
+      percent: "9,96",
+    },
+  ]);
 
   return (
     <Container>
@@ -38,22 +79,26 @@ export function InvestmentPage({ navigation }: any) {
       </Header>
       <Body>
         <ButtonsContainer>
-          <View>
-            <PageTitle title="Lista de investimentos" type="investment" />
+          <PageTitle title="Lista de investimentos" type="investment" />
+          <ScrollView>
             <TitleListProducts
               title="Renda Fixa"
               numberStars={1}
               type="investment"
+              onPress={() => setFixRent(!fixRent)}
             />
 
-            <InvestmentList />
+            {fixRent && <InvestmentList ArrayInvestments={mockInvestment} />}
 
             <TitleListProducts
               title="Fundos Imobiliários"
               numberStars={3}
               type="investment"
+              onPress={() => setFii(!fii)}
             />
-          </View>
+
+            {fii && <InvestmentList ArrayInvestments={mockFii2} />}
+          </ScrollView>
           <Footer navigation={navigation} />
         </ButtonsContainer>
       </Body>

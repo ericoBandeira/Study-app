@@ -1,8 +1,9 @@
 import styled from "styled-components/native";
 import { Ionicons } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
+import { RectButton } from "react-native-gesture-handler";
 
-export const Container = styled.View`
+export const Container = styled(RectButton)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -11,6 +12,7 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.primary_light_2};
   border-radius: 6px;
   margin: 0 ${RFValue(15)}px;
+  margin-top: ${RFValue(15)}px;
 `;
 
 export const StarContainer = styled.View``;

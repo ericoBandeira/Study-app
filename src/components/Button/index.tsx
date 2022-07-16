@@ -6,11 +6,24 @@ interface ButtonProps extends BorderlessButtonProps {
   title: string;
   type: "text" | "button";
   size?: "sm" | "lg";
+  cancel?: boolean;
 }
 
-export function Button({ title, type, size = "sm", ...rest }: ButtonProps) {
+export function Button({
+  title,
+  type,
+  size = "sm",
+  cancel = false,
+  ...rest
+}: ButtonProps) {
   return (
-    <ButtonContainer type={type} size={size} activeOpacity={0.7} {...rest}>
+    <ButtonContainer
+      cancel={cancel}
+      type={type}
+      size={size}
+      activeOpacity={0.7}
+      {...rest}
+    >
       <ButtonText type={type} size={size}>
         {title}
       </ButtonText>

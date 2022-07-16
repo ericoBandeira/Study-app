@@ -1,4 +1,5 @@
 import React from "react";
+import { RectButtonProps } from "react-native-gesture-handler";
 import { RFValue } from "react-native-responsive-fontsize";
 import {
   Container,
@@ -9,7 +10,7 @@ import {
   ContainerStars,
 } from "./styles";
 
-interface TitleListProductsProps {
+interface TitleListProductsProps extends RectButtonProps {
   title: string;
   numberStars: number;
   type: "quest" | "investment" | "market" | "notice";
@@ -26,9 +27,10 @@ export function TitleListProducts({
   title,
   numberStars,
   type,
+  ...rest
 }: TitleListProductsProps) {
   return (
-    <Container>
+    <Container {...rest}>
       <StarContainer>
         <Title>{title}</Title>
         <ContainerStars>

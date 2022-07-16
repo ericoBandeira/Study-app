@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Ionicons } from "@expo/vector-icons";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 interface ContainerProps {
   index: number;
@@ -62,4 +63,26 @@ export const ButtonContainer = styled.View`
   align-items: flex-end;
   margin: ${RFValue(10)}px;
   margin-top: ${RFValue(15)}px;
+`;
+
+export const BuyContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const PlusMinusButton = styled(BorderlessButton)``;
+
+export const TextPlusMinusButton = styled.Text`
+  color: ${({ theme }) => theme.colors.attention};
+`;
+
+export const BuyInput = styled.TextInput`
+  background-color: ${({ theme }) => theme.colors.shape};
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 ${RFValue(5)}px;
+`;
+
+export const BuyButtonContainer = styled.View`
+  flex-direction: row;
 `;
