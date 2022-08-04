@@ -8,7 +8,7 @@ export function Footer({ navigation }: any) {
       <UserButton onPress={() => navigation.navigate("Home")}>
         <CardIcon name="home-outline" size={RFValue(28)} />
       </UserButton>
-      <UserButton>
+      <UserButton onPress={() => navigation.navigate("QuestsPage")}>
         <CardIcon name="md-school-outline" size={RFValue(28)} />
       </UserButton>
       <UserButton onPress={() => navigation.navigate("InvestmentPage")}>

@@ -1,4 +1,5 @@
 import React from "react";
+import { RectButtonProps } from "react-native-gesture-handler";
 import { RFValue } from "react-native-responsive-fontsize";
 import {
   Container,
@@ -10,10 +11,11 @@ import {
   Money,
 } from "./styles";
 
-interface TitleListQuestsProps {
+interface TitleListQuestsProps extends RectButtonProps {
   title: string;
   numberMoney: number;
   type: "quest" | "investment" | "market" | "notice";
+  disabled?: boolean;
 }
 
 const icon = {
@@ -27,9 +29,11 @@ export function TitleListQuests({
   title,
   numberMoney,
   type,
+  disabled,
+  ...rest
 }: TitleListQuestsProps) {
   return (
-    <Container>
+    <Container {...rest} disabled={disabled}>
       <TitleContainer>
         <Title>{title}</Title>
         <MoneyContainer>

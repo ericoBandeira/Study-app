@@ -24,7 +24,7 @@ export function Button({
       activeOpacity={0.7}
       {...rest}
     >
-      <ButtonText type={type} size={size}>
+      <ButtonText type={type} size={size} cancel={cancel}>
         {title}
       </ButtonText>
     </ButtonContainer>

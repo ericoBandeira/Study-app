@@ -1,15 +1,23 @@
 import styled from "styled-components/native";
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
+import { RFValue } from "react-native-responsive-fontsize";
+import { RectButton } from "react-native-gesture-handler";
 
-export const Container = styled.View`
-  width: 100%;
+interface ButtonProps {
+  disabled: boolean;
+}
+
+export const Container = styled(RectButton)<ButtonProps>`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 8px 21px;
 
   background-color: ${({ theme }) => theme.colors.primary_light_2};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   border-radius: 6px;
+  margin: 0 ${RFValue(15)}px;
+  margin-top: ${RFValue(15)}px;
 `;
 
 export const TitleContainer = styled.View``;

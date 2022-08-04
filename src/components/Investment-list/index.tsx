@@ -20,9 +20,13 @@ import {
   BuyButtonContainer,
 } from "./styles";
 
+interface BuyProps {
+  key: number;
+  value: number;
+}
+
 export function InvestmentList({ ArrayInvestments }: any) {
   const [buy, setBuy] = useState(false);
-
   return (
     <Container>
       {ArrayInvestments.map((investment: InvestmentProps, index: number) => (
@@ -32,7 +36,7 @@ export function InvestmentList({ ArrayInvestments }: any) {
           <StarContainer>
             {buy ? (
               <BuyContainer>
-                <PlusMinusButton>
+                <PlusMinusButton onPress={() => {}}>
                   <TextPlusMinusButton>-</TextPlusMinusButton>
                 </PlusMinusButton>
                 <BuyInput
@@ -41,7 +45,7 @@ export function InvestmentList({ ArrayInvestments }: any) {
                   maxLength={10}
                   value="0"
                 />
-                <PlusMinusButton>
+                <PlusMinusButton onPress={() => {}}>
                   <TextPlusMinusButton>+</TextPlusMinusButton>
                 </PlusMinusButton>
               </BuyContainer>

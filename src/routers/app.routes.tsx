@@ -1,7 +1,6 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Login } from "../screens/Login";
 import { Register } from "../screens/Register";
 import { AppProvider } from "../context/contextapi";
@@ -11,9 +10,10 @@ import { HowToStore } from "../screens/HowToStore";
 import { HowToNotice } from "../screens/HowToNotice";
 import { Home } from "../screens/Home";
 import { InvestmentPage } from "../screens/InvestmentPage";
+import { QuestsPage } from "../screens/QuestsPage";
+import { Questions } from "../screens/Questions";
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
 export function AppRouter() {
   // const { signedIn } = useContext(AppContext)
@@ -28,12 +28,14 @@ export function AppRouter() {
         >
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Cadastrar" component={Register} />
-          <Tab.Screen name="Home" component={Home} />
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="HowToQuests" component={HowToQuests} />
           <Stack.Screen name="HowToInvestment" component={HowToInvestment} />
           <Stack.Screen name="HowToStore" component={HowToStore} />
           <Stack.Screen name="HowToNotice" component={HowToNotice} />
           <Stack.Screen name="InvestmentPage" component={InvestmentPage} />
+          <Stack.Screen name="QuestsPage" component={QuestsPage} />
+          <Stack.Screen name="QuestionPage" component={Questions} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>
