@@ -63,7 +63,7 @@ export function DashboardPage({ navigation }: any) {
 
   return (
     <Container>
-      <Header />
+      <Header navigation={navigation} />
       <Body>
         <ButtonsContainer>
           <DashboardTitle
