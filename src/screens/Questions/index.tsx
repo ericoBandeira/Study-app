@@ -31,7 +31,7 @@ export function Questions({ navigation }: any) {
 
   return (
     <Container>
-      <Header />
+      <Header navigation={navigation} />
       <Body>
         <QuestionContainerTitle>
           <BackButton onPress={() => () => navigation.navigate("QuestsPage")}>

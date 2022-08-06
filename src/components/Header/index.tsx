@@ -12,13 +12,13 @@ import {
   MoneyIcon,
 } from "./styles";
 
-export function Header() {
+export function Header({ navigation }: any) {
   const { userMoney } = useContext(AppContext);
 
   return (
     <Container>
       <Logo source={require("../../global/imgs/logo-sm.png")} />
-      <UserButton>
+      <UserButton onPress={() => navigation.navigate("DashboardPage")}>
         <UserIcon name="user" size={RFValue(28)} />
       </UserButton>
       <GraphIcon name="bar-graph" size={RFValue(28)} color="#85C88A" />

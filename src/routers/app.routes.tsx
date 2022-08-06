@@ -12,6 +12,7 @@ import { Home } from "../screens/Home";
 import { InvestmentPage } from "../screens/InvestmentPage";
 import { QuestsPage } from "../screens/QuestsPage";
 import { Questions } from "../screens/Questions";
+import { DashboardPage } from "../screens/DashboardPage";
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,7 @@ export function AppRouter() {
           <Stack.Screen name="InvestmentPage" component={InvestmentPage} />
           <Stack.Screen name="QuestsPage" component={QuestsPage} />
           <Stack.Screen name="QuestionPage" component={Questions} />
+          <Stack.Screen name="DashboardPage" component={DashboardPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppProvider>

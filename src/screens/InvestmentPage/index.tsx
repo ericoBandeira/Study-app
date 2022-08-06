@@ -51,7 +51,7 @@ export function InvestmentPage({ navigation }: any) {
 
   return (
     <Container>
-      <Header />
+      <Header navigation={navigation} />
       <Body>
         <ButtonsContainer>
           <PageTitle title="Lista de investimentos" type="investment" />

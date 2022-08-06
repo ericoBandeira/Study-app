@@ -17,7 +17,7 @@ export function Home({ navigation }: any) {
 
   return (
     <Container>
-      <Header />
+      <Header navigation={navigation} />
       <Body>
         <ButtonsContainer>
           <View>

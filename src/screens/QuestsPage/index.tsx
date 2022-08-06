@@ -32,7 +32,7 @@ export function QuestsPage({ navigation }: any) {
 
   return (
     <Container>
-      <Header />
+      <Header navigation={navigation} />
       <Body>
         <ButtonsContainer>
           <PageTitle title="Lista de quests" type="quest" />
