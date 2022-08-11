@@ -20,7 +20,7 @@ export function Login({ navigation }: any) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  const { setSignedIn, setToken } = useContext(AppContext);
+  const { setSignedIn, setToken, setUserMoney } = useContext(AppContext);
 
   async function Auth() {
     const response = await axios.post(`http://localhost:5000/login`, {
@@ -38,6 +38,7 @@ export function Login({ navigation }: any) {
       setToken(response.data.data.token);
       setError(false);
       setSignedIn(true);
+      setUserMoney(responseGet.data.data.user.balance);
       responseGet.data.data.user.first_access
         ? navigation.navigate("HowToQuests")
         : navigation.navigate("Home");

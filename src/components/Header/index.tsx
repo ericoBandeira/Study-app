@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext } from "react";
 import { RFValue } from "react-native-responsive-fontsize";
 import { AppContext } from "../../context/contextapi";
@@ -14,7 +15,6 @@ import {
 
 export function Header({ navigation }: any) {
   const { userMoney } = useContext(AppContext);
-
   return (
     <Container>
       <Logo source={require("../../global/imgs/logo-sm.png")} />

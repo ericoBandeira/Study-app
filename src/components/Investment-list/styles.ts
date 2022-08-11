@@ -70,19 +70,36 @@ export const BuyContainer = styled.View`
   align-items: center;
 `;
 
-export const PlusMinusButton = styled(BorderlessButton)``;
-
-export const TextPlusMinusButton = styled.Text`
-  color: ${({ theme }) => theme.colors.attention};
-`;
-
-export const BuyInput = styled.TextInput`
-  background-color: ${({ theme }) => theme.colors.shape};
-  border-radius: 5px;
-  padding: 5px;
-  margin: 0 ${RFValue(5)}px;
-`;
-
 export const BuyButtonContainer = styled.View`
   flex-direction: row;
+`;
+
+export const ModalTitle = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.bold};
+  font-size: 14px;
+
+  color: ${({ theme }) => theme.colors.text};
+`;
+
+export const ModalInput = styled.TextInput`
+  background-color: ${({ theme }) => theme.colors.shape};
+  width: ${RFValue(300)}px;
+  padding: 8px 12px;
+
+  border: 1px solid #cdccd7;
+  border-radius: 4px;
+  margin-bottom: 10px;
+`;
+
+export const ModalButtonContainer = styled.View`
+  flex-direction: row;
+`;
+
+export const ModalInvest = styled.Modal``;
+
+export const ModalContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.primary_light_2};
 `;
