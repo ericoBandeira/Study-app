@@ -33,6 +33,15 @@ export const RegisterContainer = styled.View`
 `;
 
 export const ButtonContainer = styled.View`
-  align-items: flex-end;
+  margin-left: 5px;
+  align-items: center;
+  justify-content: space-between;
   margin-top: ${RFValue(8)}px;
+  flex-direction: row;
+`;
+
+export const Error = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.mid};
+  color: ${({ theme }) => theme.colors.attention};
+  font-size: 12px;
 `;

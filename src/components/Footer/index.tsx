@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { RFValue } from "react-native-responsive-fontsize";
+import { AppContext } from "../../context/contextapi";
 import { Container, UserButton, CardIcon, GraphIcon } from "./styles";
 
 export function Footer({ navigation }: any) {
+  const { token } = useContext(AppContext);
   return (
     <Container>
       <UserButton onPress={() => navigation.navigate("Home")}>

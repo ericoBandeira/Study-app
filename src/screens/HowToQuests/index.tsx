@@ -1,10 +1,11 @@
-import React from "react";
-import { Text, View } from "react-native";
-import { RFValue } from "react-native-responsive-fontsize";
+import axios from "axios";
+import React, { useContext } from "react";
+import { useEffect } from "react";
+import { View } from "react-native";
 import { CardImg } from "../../components/Card-img";
 import { Header } from "../../components/Header";
 import { InfoMsg } from "../../components/Info-msg";
-import { Logo } from "../Loading/styles";
+import { AppContext } from "../../context/contextapi";
 import {
   Container,
   Body,
@@ -14,6 +15,21 @@ import {
 } from "./styles";
 
 export function HowToQuests({ navigation }: any) {
+  const { token } = useContext(AppContext);
+
+  async function setFirstAccess() {
+    axios({
+      method: "put",
+      url: "http://localhost:5000/auth/user/access",
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    navigation.navigate("HowToInvestment");
+  }
+
   return (
     <Container>
       <Header />
@@ -43,7 +59,7 @@ export function HowToQuests({ navigation }: any) {
           </View>
           <InfoMsg
             text="Aqui é a área onde estará disponíveis as quests"
-            onPress={() => navigation.navigate("HowToInvestment")}
+            onPress={() => setFirstAccess()}
           />
         </ButtonsContainer>
       </Body>

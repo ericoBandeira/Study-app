@@ -1,6 +1,7 @@
+import axios from "axios";
 import React, { useContext } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
-import { KeyboardAvoidingView } from "react-native";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
 import { AppContext } from "../../context/contextapi";
@@ -19,13 +20,27 @@ export function Login({ navigation }: any) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  const { setSignedIn, signedIn } = useContext(AppContext);
+  const { setSignedIn, setToken } = useContext(AppContext);
 
-  function fakeAuth() {
-    if (user === "rafaelteodosio@aluno.com" && password === "123456") {
+  async function Auth() {
+    const response = await axios.post(`http://localhost:5000/login`, {
+      email: user,
+      password: password,
+    });
+
+    const responseGet = await axios.get(`http://localhost:5000/auth/user`, {
+      headers: {
+        Authorization: response.data.data.token,
+      },
+    });
+
+    if (response.data.status === "success") {
+      setToken(response.data.data.token);
       setError(false);
       setSignedIn(true);
-      navigation.navigate("HowToQuests");
+      responseGet.data.data.user.first_access
+        ? navigation.navigate("HowToQuests")
+        : navigation.navigate("Home");
     } else {
       setError(true);
     }
@@ -45,7 +60,7 @@ export function Login({ navigation }: any) {
             type="text"
             onPress={() => navigation.navigate("Cadastrar")}
           />
-          <Button title="Login" type="button" size="lg" onPress={fakeAuth} />
+          <Button title="Login" type="button" size="lg" onPress={Auth} />
         </ButtonContainer>
         <ForgetPasswordContainer>
           <Button title="Esqueceu Senha" type="text" />
