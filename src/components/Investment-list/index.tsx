@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
+import { useEffect } from "react";
 import { Alert } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import { AppContext } from "../../context/contextapi";
@@ -34,7 +35,20 @@ export function InvestmentList({ ArrayInvestments, FixedIncome }: InvestProps) {
   const [modalVisible, setModalVisible] = useState(false);
   const [auxValueInvest, setAuxValueInvest] = useState("");
 
-  const { token, setUserMoney } = useContext(AppContext);
+  const { token, setUserMoney, userMoney } = useContext(AppContext);
+
+  async function getBalance() {
+    const response = await axios.get(
+      `https://study-api-deno.herokuapp.com/auth/user`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    setUserMoney(response.data.data.user.balance);
+  }
 
   async function addInvestment(id: number) {
     const responseGet = await axios.get(
@@ -69,6 +83,7 @@ export function InvestmentList({ ArrayInvestments, FixedIncome }: InvestProps) {
         Alert.alert("Compra efetuada com sucesso!");
         setUserMoney(responseGet.data.data.user.balance);
         setAuxValueInvest("");
+        getBalance();
       })
       .catch((err) => {
         Alert.alert(
@@ -78,6 +93,10 @@ export function InvestmentList({ ArrayInvestments, FixedIncome }: InvestProps) {
         setAuxValueInvest("");
       });
   }
+
+  useEffect(() => {
+    getBalance();
+  }, [userMoney]);
 
   return (
     <Container>

@@ -61,7 +61,7 @@ export function QuestsPage({ navigation }: any) {
   useEffect(() => {
     getModule();
     getQuests();
-  }, [moduleQuest, questsArray]);
+  }, [moduleQuest]);
 
   return (
     <Container>

@@ -13,8 +13,6 @@ import {
 import { Header } from "../../components/Header";
 
 export function Home({ navigation }: any) {
-  const { userMoney } = useContext(AppContext);
-
   return (
     <Container>
       <Header navigation={navigation} />
