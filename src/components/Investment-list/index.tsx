@@ -37,15 +37,18 @@ export function InvestmentList({ ArrayInvestments, FixedIncome }: InvestProps) {
   const { token, setUserMoney } = useContext(AppContext);
 
   async function addInvestment(id: number) {
-    const responseGet = await axios.get(`http://localhost:5000/auth/user`, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const responseGet = await axios.get(
+      `https://study-api-deno.herokuapp.com/auth/user`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
 
     await axios
       .post(
-        `http://localhost:5000/user/investment`,
+        `https://study-api-deno.herokuapp.com/user/investment`,
         {
           investment_id: id,
           value: Number(auxValueInvest),

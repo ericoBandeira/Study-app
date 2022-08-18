@@ -29,7 +29,7 @@ export function InvestmentPage({ navigation }: any) {
 
   async function getInvestiments() {
     await axios
-      .get(`http://localhost:5000/investment`, {
+      .get(`https://study-api-deno.herokuapp.com/investment`, {
         headers: {
           Authorization: token,
         },

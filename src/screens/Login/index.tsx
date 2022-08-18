@@ -23,16 +23,24 @@ export function Login({ navigation }: any) {
   const { setSignedIn, setToken, setUserMoney } = useContext(AppContext);
 
   async function Auth() {
-    const response = await axios.post(`http://localhost:5000/login`, {
-      email: user,
-      password: password,
-    });
+    const response = await axios.post(
+      `https://study-api-deno.herokuapp.com/login`,
+      {
+        email: user,
+        password: password,
+      }
+    );
 
-    const responseGet = await axios.get(`http://localhost:5000/auth/user`, {
-      headers: {
-        Authorization: response.data.data.token,
-      },
-    });
+    const responseGet = await axios.get(
+      `https://study-api-deno.herokuapp.com/auth/user`,
+      {
+        headers: {
+          Authorization: response.data.data.token,
+        },
+      }
+    );
+
+    console.log(response);
 
     if (response.data.status === "success") {
       setToken(response.data.data.token);

@@ -20,7 +20,7 @@ export function HowToQuests({ navigation }: any) {
   async function setFirstAccess() {
     axios({
       method: "put",
-      url: "http://localhost:5000/auth/user/access",
+      url: "https://study-api-deno.herokuapp.com/auth/user/access",
       headers: {
         Authorization: token,
       },

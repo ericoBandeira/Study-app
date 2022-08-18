@@ -28,7 +28,7 @@ export function Register({ navigation }: any) {
       password !== confirmPassword
     ) {
       await axios
-        .post(`http://localhost:5000/signup`, {
+        .post(`https://study-api-deno.herokuapp.com/signup`, {
           nickname: user,
           email: emailUser,
           password: password,

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext } from "react";
+import { useEffect } from "react";
 import { RFValue } from "react-native-responsive-fontsize";
 import { AppContext } from "../../context/contextapi";
 import {
@@ -14,7 +15,25 @@ import {
 } from "./styles";
 
 export function Header({ navigation }: any) {
-  const { userMoney } = useContext(AppContext);
+  const { userMoney, setUserMoney, token } = useContext(AppContext);
+
+  async function getBalance() {
+    const response = await axios.get(
+      `https://study-api-deno.herokuapp.com/auth/user`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    setUserMoney(response.data.data.user.balance);
+  }
+
+  useEffect(() => {
+    getBalance();
+  }, [userMoney]);
+
   return (
     <Container>
       <Logo source={require("../../global/imgs/logo-sm.png")} />
