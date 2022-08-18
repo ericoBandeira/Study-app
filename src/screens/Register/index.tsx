@@ -33,9 +33,10 @@ export function Register({ navigation }: any) {
           email: emailUser.toLowerCase(),
           password: password,
         })
-        .then(() =>
-          Alert.alert("Sucesso!", "sua conta foi cadastrada com sucesso :)")
-        )
+        .then(() => {
+          navigation.navigate("Login");
+          Alert.alert("Sucesso!", "sua conta foi cadastrada com sucesso :)");
+        })
         .catch(() => Alert.alert("Erro!", "Erro ao cadastrar"));
     } else {
       setError(true);
