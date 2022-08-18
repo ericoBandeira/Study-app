@@ -26,7 +26,7 @@ export function Login({ navigation }: any) {
     const response = await axios.post(
       `https://study-api-deno.herokuapp.com/login`,
       {
-        email: user,
+        email: user.toLowerCase(),
         password: password,
       }
     );
