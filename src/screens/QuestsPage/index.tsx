@@ -11,8 +11,11 @@ import { AppContext } from "../../context/contextapi";
 import { Container, Body, ButtonsContainer } from "./styles";
 
 export interface QuestsProps {
+  id: number;
+  quest_number: number;
   name: string;
-  coins: number;
+  summary: string;
+  reward: number;
 }
 
 interface ModuleProps {
@@ -27,20 +30,7 @@ export function QuestsPage({ navigation }: any) {
   const { token } = useContext(AppContext);
   const [moduleQuest, setModule] = useState<Array<ModuleProps>>([]);
 
-  const [mockQuests, setMockQuests] = useState<Array<QuestsProps>>([
-    {
-      name: "Inflação",
-      coins: 100,
-    },
-    {
-      name: "Relações Internacionais",
-      coins: 50,
-    },
-    {
-      name: "Politicas Publicas",
-      coins: 50,
-    },
-  ]);
+  const [questsArray, setQuestsArray] = useState<Array<QuestsProps>>([]);
 
   async function getModule() {
     const response = await axios.get(
@@ -55,9 +45,23 @@ export function QuestsPage({ navigation }: any) {
     setModule(response.data.data.modules);
   }
 
+  async function getQuests() {
+    const response = await axios.get(
+      "https://study-api-deno.herokuapp.com/quest",
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+
+    setQuestsArray(response.data.data.quests);
+  }
+
   useEffect(() => {
     getModule();
-  }, [moduleQuest]);
+    getQuests();
+  }, [moduleQuest, questsArray]);
 
   return (
     <Container>
@@ -74,11 +78,7 @@ export function QuestsPage({ navigation }: any) {
             />
 
             {questList && (
-              <QuestsList
-                ArrayQuests={mockQuests}
-                Questions="Fatores Externos"
-                navigation={navigation}
-              />
+              <QuestsList ArrayQuests={questsArray} navigation={navigation} />
             )}
 
             <TitleListQuests

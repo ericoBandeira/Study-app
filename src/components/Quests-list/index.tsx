@@ -17,15 +17,10 @@ import {
 
 interface QuestsListProps {
   ArrayQuests: any;
-  Questions: string;
   navigation: any;
 }
 
-export function QuestsList({
-  ArrayQuests,
-  Questions,
-  navigation,
-}: QuestsListProps) {
+export function QuestsList({ ArrayQuests, navigation }: QuestsListProps) {
   return (
     <Container>
       {ArrayQuests.map((quests: QuestsProps, index: number) => (
@@ -35,7 +30,7 @@ export function QuestsList({
           <QuestTitle>{quests.name}</QuestTitle>
 
           <PercentContainer>
-            <InvestmentPercent>{quests.coins}</InvestmentPercent>
+            <InvestmentPercent>{quests.reward}</InvestmentPercent>
             <MoneyIcon name="coins" size={RFValue(24)} color="#FFD54F" />
           </PercentContainer>
         </InvestmentContainer>
