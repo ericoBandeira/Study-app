@@ -42,6 +42,8 @@ export function Questions({ navigation }: any) {
   const { token } = useContext(AppContext);
   const [numberQuestion, SetNumberQuestion] = useState(0);
   const [questSize, setQuestSize] = useState(0);
+  const [correctAnswerNumber, setCorrectAnswerNumber] = useState(0);
+
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps>({
     id: 0,
     question_text: "",
@@ -69,7 +71,6 @@ export function Questions({ navigation }: any) {
   }
 
   async function CorrectAnswerFunc() {
-    console.log(numberQuestion, "-", currentQuestion);
     setShowAnswer(true);
     setTimeout(() => {
       if (numberQuestion + 1 < questSize) {
@@ -77,14 +78,30 @@ export function Questions({ navigation }: any) {
         setShowAnswer(false);
         SetNumberQuestion(numberQuestion + 1);
       } else {
-        navigation.navigate("QuestsPage");
+        sendCorrectAnswer();
       }
     }, 2000);
   }
 
+  async function sendCorrectAnswer() {
+    console.log(correctAnswerNumber);
+    await axios({
+      method: "put",
+      url: "https://study-api-deno.herokuapp.com/quest/1/complete",
+      data: {
+        answers: correctAnswerNumber + 1,
+      },
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then(() => navigation.navigate("QuestsPage", correctAnswerNumber))
+      .catch((err) => console.log(err));
+  }
+
   useEffect(() => {
     GetQuestion();
-  }, [currentQuestion]);
+  }, [currentQuestion, correctAnswerNumber]);
 
   return (
     <Container>
@@ -102,7 +119,14 @@ export function Questions({ navigation }: any) {
               <QuestIcon name="md-school-outline" size={RFValue(38)} />
               <QuestText>{currentQuestion.question_text}</QuestText>
             </QuestTitle>
-            <QuestionOption onPress={CorrectAnswerFunc}>
+            <QuestionOption
+              onPress={() => {
+                if ("a" === currentQuestion.answer) {
+                  setCorrectAnswerNumber(correctAnswerNumber + 1);
+                }
+                CorrectAnswerFunc();
+              }}
+            >
               <QuestionOptionText>
                 {currentQuestion.alternatives.a}
               </QuestionOptionText>
@@ -117,7 +141,14 @@ export function Questions({ navigation }: any) {
                   <IncorrectAnswer name="x" size={24} color="#E83A14" />
                 ))}
             </QuestionOption>
-            <QuestionOption onPress={CorrectAnswerFunc}>
+            <QuestionOption
+              onPress={() => {
+                if ("b" === currentQuestion.answer) {
+                  setCorrectAnswerNumber(correctAnswerNumber + 1);
+                }
+                CorrectAnswerFunc();
+              }}
+            >
               <QuestionOptionText>
                 {currentQuestion.alternatives.b}
               </QuestionOptionText>
@@ -132,7 +163,14 @@ export function Questions({ navigation }: any) {
                   <IncorrectAnswer name="x" size={24} color="#E83A14" />
                 ))}
             </QuestionOption>
-            <QuestionOption onPress={CorrectAnswerFunc}>
+            <QuestionOption
+              onPress={() => {
+                if ("c" === currentQuestion.answer) {
+                  setCorrectAnswerNumber(correctAnswerNumber + 1);
+                }
+                CorrectAnswerFunc();
+              }}
+            >
               <QuestionOptionText>
                 {currentQuestion.alternatives.c}
               </QuestionOptionText>
@@ -147,7 +185,14 @@ export function Questions({ navigation }: any) {
                   <IncorrectAnswer name="x" size={24} color="#E83A14" />
                 ))}
             </QuestionOption>
-            <QuestionOption onPress={CorrectAnswerFunc}>
+            <QuestionOption
+              onPress={() => {
+                if ("d" === currentQuestion.answer) {
+                  setCorrectAnswerNumber(correctAnswerNumber + 1);
+                }
+                CorrectAnswerFunc();
+              }}
+            >
               <QuestionOptionText>
                 {currentQuestion.alternatives.d}
               </QuestionOptionText>

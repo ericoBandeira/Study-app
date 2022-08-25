@@ -2,7 +2,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import { BorderlessButton } from "react-native-gesture-handler";
-import { Entypo, Ionicons } from "@expo/vector-icons";
+import { Entypo, Ionicons, Feather } from "@expo/vector-icons";
 
 export const Container = styled.View`
   width: 100%;
@@ -21,3 +21,5 @@ export const UserButton = styled(BorderlessButton)``;
 export const GraphIcon = styled(Entypo)``;
 
 export const CardIcon = styled(Ionicons)``;
+
+export const DolarIcon = styled(Feather)``;
